@@ -1,5 +1,13 @@
 var p;
+function hiddenBody() {
+  document.getElementById("linx").style.overflow = 'hidden';
 
+}
+
+function clearBody() {
+  document.getElementById("linx").style.overflow = 'auto';
+
+}
 function init(){
     $(function () {
       console.log('Starting PLaSM final-project...');
@@ -26,24 +34,26 @@ function init(){
 
 
 function view(){
-
+ var plasm = document.getElementById("plasm")
+      if(plasm == null){
   var message = 'Do you want see the linx model?'
 
   var choice = confirm(message)
 
   if (choice == true) {
-    var plasm = document.getElementById("plasm")
-      if(plasm == null)
+   
         var plasm = document.createElement("div");
         plasm.setAttribute("id","plasm")
-        plasm.setAttribute("onmouseover","blockBody()")
-        plasm.setAttribute("onmouseout","clear()")
         var cont = document.getElementById("container");
         cont.appendChild(plasm)
         init();
+        var canvas = document.getElementsByTagName('canvas')[0]
+        canvas.setAttribute("onmouseover","hiddenBody()");
+        canvas.setAttribute("onmouseout","clearBody()");
+        canvas.setAttribute("heigh","500px");
         showModel()
   }
-
+}
 }
 
 function closeVision(){
@@ -62,15 +72,7 @@ function closeVision(){
 }
 }
 
-function blockBody() {
-  document.getElementById("linx").style.overflow = 'hidden';
 
-}
-
-function clear() {
-  document.getElementById("linx").style.overflow = 'auto';
-
-}
 
 var final_model;
 
@@ -616,7 +618,7 @@ function Animate() {
   if (choice == true) {
     setInterval(function () {
     final_model.rotate([0,1], PI/45)/*.rotate([1,2],PI/45).rotate([0,2],PI/45)*/;
-    }, 70);
+    }, 10);
   }
   
 
