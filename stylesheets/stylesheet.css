@@ -107,6 +107,7 @@ header h2 {
 
 #main-content img {
   max-width: 100%;
+  float: center;
 }
 
 aside#sidebar {
@@ -142,12 +143,14 @@ a.button small {
   display: block;
   font-size: 11px;
 }
-header a.button {
+
+a.button {
   position: absolute;
   right: 0;
   top: 0;
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
+
 aside a.button {
   width: 138px;
   padding-left: 64px;
