@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <script type="text/javascript" src="javascripts/linx.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,7 +18,7 @@
     <title>Linx Modular System project</title>
   </head>
 
-  <body>
+  <body id="linx">
     <header>
       <div class="inner">
         <h1>Linx Modular System project</h1>
@@ -29,13 +31,22 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
+<h3>
+<a name="Project" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+</span></a>Animated Project on plasm.js</h3>
+<div id="container"></div>
+<button onclick="view()">view model</button>
+<button onclick="closeVision()">close vision</button>
+<!-- <div id="plasm"></div> -->
+         
+<h3>
 <a name="linx furniture" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
 </span></a>Linx furniture</h3>
 
 <p>One furniture line really can do it all! LINX modular furniture is different from conventional office lines. It is not a panel-based system, but a freestanding technical desking platform. This kind of construction gives you and your facility planners the ultimate flexibility in creating a space efficient office layout.</p>
 <img src="images/linx-modular.png"><img>
 <h3>
+
 <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
 <p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
@@ -63,6 +74,24 @@
         </aside>
       </div>
     </div>
+
+
+<!-- script plasm -->
+<script src="support/jquery.js"></script>
+<script src="support/mustache.js"></script>
+<script src="support/numeric.js"></script>
+<script src="support/director.js"></script>
+<script src="support/three.js"></script>
+<script src="support/three-detector.js"></script>
+<script src="support/three-frame.js"></script>
+<script src="support/three-stats.js"></script>
+<script src="support/three-trackball.js"></script>
+<script src="node_modules/simplexn.js/lib/simplexn.js"></script>
+<script src="node_modules/f.js/lib/f.js"></script> 
+<script src="lib/plasm.js"></script>
+<script src="lib/plasm-fun.js"></script>
+
+
 
   
   </body>
