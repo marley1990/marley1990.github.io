@@ -261,7 +261,7 @@ var other2 = mapC([create_ptl(new_prof,new_weigh,0)[0],
 
 var other = T([1])([6-r])(STRUCT([other1,T([1,2])([0.025,h])(other2)]))
 
-var behind = STRUCT([T([1,2])([r-0.05,(new_heigh)*0.1])(CUBOID([0.01,6-(r-0.05),(x_plane+z_plane+0.1)-(new_heigh)*0.1])),
+var behind = STRUCT([T([1,2])([r-0.05,(new_heigh)*0.1])(CUBOID([0.01,6-2*(r-0.05),(x_plane+z_plane+0.1)-(new_heigh)*0.1])),
                      T([1,2])([r-0.05,(new_heigh)*0.1])(CUBOID([l*0.2,6-2*(new_weigh),0.01]))
                    ]);
 
