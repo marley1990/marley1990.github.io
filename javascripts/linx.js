@@ -41,8 +41,7 @@ function view(){
   var choice = confirm(message)
 
   if (choice == true) {
-   
-        var plasm = document.createElement("div");
+	 var plasm = document.createElement("div");
         plasm.setAttribute("id","plasm")
         var cont = document.getElementById("container");
         cont.appendChild(plasm)
@@ -50,7 +49,7 @@ function view(){
         var canvas = document.getElementsByTagName('canvas')[0]
         canvas.setAttribute("onmouseover","hiddenBody()");
         canvas.setAttribute("onmouseout","clearBody()");
-        canvas.setAttribute("heigh","500px");
+        canvas.setAttribute("height","500px");
         showModel()
   }
 }
