@@ -72,6 +72,10 @@ header {
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
+/*  position: fixed;
+  height: 150px;
+  width: 100%;
+  z-index:1000;*/
 }
 
 header h1 {
@@ -180,6 +184,7 @@ code {
   background-color: #f2f8fc;
   border: solid 1px #dbe7f3;
   padding: 0 3px;
+
 }
 
 pre {
@@ -194,6 +199,7 @@ pre code {
   background-color: #fff;
   border: none;
   padding: 0;
+  
 }
 
 ul, ol, dl {

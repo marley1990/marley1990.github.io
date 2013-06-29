@@ -144,6 +144,16 @@ within the smallest office footprint or it can be grouped for large-scale shared
                   <img src="images/worksurface.png"></img>
                 </ul>
               </p>
+<p><pre><code>l = 2.60;r = 0.2;h = 0.05;
+ptl = [[0,0,h],[l,0,h],[l+0.05,r/4,h],[l+0.1,r/2,h],[l+0.05,r,h],[l,r,h],[0,r,h]];//this are the point of curve
+function create_ptl(l,r,h);//returned array with NUBS curve with ptl as controlpoints, center, end, and ptl
+function make_leg(l,r,h);//create leg for worksurface platforms
+function mapC(args); //args is array of curve(NUBS o BEZIER(S0)) that must be mapped in S1 
+function create_plane(l,r,h); //return an object, the worksurface platforms
+x_plane = h*41;y_plane = l;z_plane = r;
+new_heigh = h*40;new_prof = l/2;new_weigh = r-0.05;
+table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,behind])// base is the right leg, build through function mapC([create_ptl(l,r,h),create_ptl(new_prof,new_weigh,new_heigh])
+</code></pre></p>
               
           
           </section>
