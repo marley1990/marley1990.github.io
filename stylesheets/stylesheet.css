@@ -67,32 +67,32 @@ text-decoration: underline;
 }
 
 header {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  position: fixed;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
-/*  position: fixed;
-  height: 150px;
-  width: 100%;
-  z-index:1000;*/
+  height: 50px;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  z-index:1000;
 }
 
 header h1 {
   letter-spacing: -1px;
-  font-size: 50px;
+  font-size: 25px;
   color: #fff;
   line-height: 1;
-  margin-bottom: 0.2em;
-  width: 540px;
+  margin-top: 0.5em;
+  width: 40%;
 }
 
 header h2 {
-  font-size: 26px;
+  font-size:12px;
   color: #9ddcff;
   font-weight: normal;
   line-height: 1.3;
-  width: 540px;
+  width: 400px;
   letter-spacing: 0;
 }
 
@@ -108,8 +108,19 @@ header h2 {
 }
 
 #main-content {
-  width: 690px;
-  float: left;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 55px;
+  z-index: 500;
+  background-color: #fff;
+  -moz-box-shadow:  10px  10px 5px #dedede;
+  -webkit-box-shadow:  10px  10px 5px #dedede;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#dedede', Direction=135, Strength=10);
+  box-shadow:  10px  0px 3px #dedede, 
+              -10px 0px 3px #dedede,
+               10px 0px 3px #dedede,
+              -10px  0px 3px #dedede;
 }
 
 #main-content img {
@@ -143,14 +154,16 @@ aside#sidebar p.repo-owner a {
 }
 
 a.button {
-  width: 134px;
-  height: 58px;
+  width: 70px;
+  height: 30px;
   line-height: 1.2;
-  font-size: 23px;
+  font-size: 14px;
   color: #fff;
-  padding-left: 68px;
-  padding-top: 22px;
+/*  padding-left: 68px;
+  padding-top: 22px;*/
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  float: right;
+  margin-top: -26px;
 }
 a.button small {
   display: block;
@@ -158,10 +171,8 @@ a.button small {
 }
 
 a.button {
-  position: absolute;
   right: 0;
   top: 0;
-  background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
 
 aside a.button {
@@ -250,7 +261,6 @@ form {
 } 
 
 #main-content h1:before {
-  content: "/";
   color: #9ddcff;
   padding-right: 0.3em;
   margin-left: -0.9em;
@@ -264,7 +274,6 @@ form {
   color: #474747;
 } 
 #main-content h2:before {
-  content: "//";
   color: #9ddcff;
   padding-right: 0.3em;
   margin-left: -1.5em;
@@ -280,7 +289,6 @@ form {
 } 
  
 #main-content h3:before {
-  content: "///";
   color: #9ddcff;
   padding-right: 0.3em;
   margin-left: -2em;
