@@ -155,9 +155,10 @@ x_plane = h*41;y_plane = l;z_plane = r;
 new_heigh = h*40;new_prof = l/2;new_weigh = r-0.05;
 table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,behind])// base is the right leg, build through function mapC([create_ptl(l,r,h),create_ptl(new_prof,new_weigh,new_heigh])
 </code></pre></p>
-              
-          
+
           </section>
+          
+            <!-- start sidebar -->
 
             <aside id="sidebar" style="display:none">
               <p><a href="#modular system">Modular design in buildings</a></p>
@@ -187,8 +188,11 @@ table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,b
                   </ul> 
               </p>
             </aside>
+            <!-- end sidebar -->
+
           </div>
         </div>
+
 
 
         <!-- script plasm -->
@@ -206,6 +210,14 @@ table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,b
         <script src="lib/plasm.js"></script>
         <script src="lib/plasm-fun.js"></script>
 
+
+             <footer>
+            <div class="inner">
+            <h2>Copyright® Barbieri Marco</h2>
+            <a href="#" onclick="viewSidebar()">Sidebar</a>
+            <a href="" class="button" id="download"> download</a>
+          </div>
+          </footer>
 
 
 
