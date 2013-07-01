@@ -69,8 +69,6 @@ text-decoration: underline;
 header {
   position: fixed;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
-  border-bottom: solid 1px #275da1;
   height: 50px;
   width: 95%;
   margin-left: 2.5%;
@@ -364,7 +362,7 @@ dl dd {
 }
 
 footer {
-  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
+  background-color: #111; 
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
   border-bottom: solid 1px #275da1;
   height: 30px;

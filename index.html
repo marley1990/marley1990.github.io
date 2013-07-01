@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/menu.css"  />
   <script type="text/javascript" src="javascripts/linx.js"></script>
   <script type="text/javascript" src="javascripts/main.js"></script>
 
@@ -20,13 +21,61 @@
 
   <body id="linx" >
     <header>
-      <div class="inner">
-        <h1>Linx Modular System project</h1>
-        <a href="#" class="button" onclick="viewSidebar()"><small>View</small>Sidebar</a>
-        <a href="https://github.com/marley1990" class="button"
-        style="margin-right:100px" ><small>Follow me on</small>GitHub</a>
-        <a href="https://github.com/cvdlab-cg/427501/blob/master/final-project/linx.js" class="button" style="margin-right:100px"><small>View code</small>GitHub</a>
-      </div>
+        <div id="drop-menu">
+          <ul id="menu">
+            <li><a href="#">Sidebar</a>
+              <ul>
+                            <!-- start sidebar -->
+              <li><a href="#modular system">Modular design in buildings</a></li>
+              <li><a href="#Wright Line">Wright Line’s LINX®</a>
+                  <ul>
+                    <li><a href="#Story">Story</a></li>
+                    <li><a href="#Mission">Mission</a></li>
+                    <li><a href="#Portfoglio">LINX Portfolio</a></li>
+                  </ul>
+              </li>
+              <li><a href="#Project">Animated Project on plasm.js</a></li>
+              <li><a href="#linx furniture">Linx furniture</a></li>
+              <li><a href="#worksurface">Worksurface platforms:</a>
+                   <ul>
+                    <li><a href="#f">left-side</a>
+                      <ul>
+                    <li><a href="#front">left-front</a></li>
+                    <li><a href="#behind">left-behind</a></li>
+                    <li><a href="#oblique">left</a></li>
+                      </ul>
+                  </li> 
+                  
+                    <li><a href="#">center-side</a><ul>
+                    <li><a href="#center">center</a></li>
+                   </ul>
+                  </li>
+                  <li><a href="#">right-side</a>
+                    <ul>
+                      <li><a href="#right">right</a></li>
+                    </ul> 
+                </li>
+                  </ul>
+                </li>
+                    <li><a href="#total">worksurface</a></li> 
+            </ul>
+          </li>
+            
+            <!-- end sidebar -->
+            
+              
+        <li><a href="https://github.com/marley1990">Follow me</a></li>
+        <li><a href="https://github.com/cvdlab-cg/427501/blob/master/final-project/linx.js">View code</a></li>
+        <li><a href="">Downloads</a>
+          <ul>
+            <li><a href="https://github.com/marley1990/Modular-System/tarball/master">Tar</a></li>
+            <li><a href="https://github.com/marley1990/Modular-System/zipball/master">Zip</a></li>
+          </ul>
+        </li>
+          </ul>
+          </div>
+        </div>
+
     </header>
 
     <div id="content-wrapper">
@@ -158,37 +207,7 @@ table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,b
 
           </section>
           
-            <!-- start sidebar -->
 
-            <aside id="sidebar" style="display:none">
-              <p><a href="#modular system">Modular design in buildings</a></p>
-              <p><a href="#Wright Line">Wright Line’s LINX®</a>
-                  <ul>
-                    <li><a href="#Story">Story</a></li>
-                    <li><a href="#Mission">Mission</a></li>
-                    <li><a href="#Portfoglio">LINX Portfolio</a></li>
-                  </ul>
-              </p>
-              <p><a href="#Project">Animated Project on plasm.js</a></p>
-              <p><a href="#linx furniture">Linx furniture</a></p>
-              <p><a href="#worksurface">Worksurface platforms:</a>
-                   <ul>left-side
-                    <li><a href="#front">left-front</a></li>
-                    <li><a href="#behind">left-behind</a></li>
-                    <li><a href="#oblique">left</a></li>
-                  </ul> 
-                  <ul>center-side
-                    <li><a href="#center">center</a></li>
-                  </ul> 
-                  <ul>right-side
-                    <li><a href="#right">right</a></li>
-                  </ul> 
-                  <ul>
-                    <li><a href="#total">worksurface</a></li>
-                  </ul> 
-              </p>
-            </aside>
-            <!-- end sidebar -->
 
           </div>
         </div>
@@ -211,11 +230,9 @@ table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,b
         <script src="lib/plasm-fun.js"></script>
 
 
-             <footer>
+          <footer>
             <div class="inner">
             <h2>Copyright® Barbieri Marco</h2>
-            <a href="#" onclick="viewSidebar()">Sidebar</a>
-            <a href="" class="button" id="download"> download</a>
           </div>
           </footer>
 
