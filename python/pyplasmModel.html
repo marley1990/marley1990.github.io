@@ -5,12 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-  <link rel="stylesheet" type="text/css" href="stylesheets/menu.css"  />
-  <script type="text/javascript" src="javascripts/linx.js"></script>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/menu.css"  />
+  <script type="text/javascript" src="linx.py"></script>
 
+
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <title>Linx Modular System project</title>
   </head>
@@ -30,7 +35,30 @@
                     <li><a href="#Portfoglio">LINX Portfolio</a></li>
                   </ul>
               </li>
-              
+              <li><a href="#Project">Animated Project on plasm.js</a></li>
+              <li><a href="#linx furniture">Linx furniture</a></li>
+              <li><a href="#worksurface">Worksurface platforms:</a>
+                   <ul>
+                    <li><a href="#f">left-side</a>
+                      <ul>
+                    <li><a href="#front">left-front</a></li>
+                    <li><a href="#behind">left-behind</a></li>
+                    <li><a href="#oblique">left</a></li>
+                      </ul>
+                  </li> 
+                  
+                    <li><a href="#">center-side</a><ul>
+                    <li><a href="#center">center</a></li>
+                   </ul>
+                  </li>
+                  <li><a href="#">right-side</a>
+                    <ul>
+                      <li><a href="#right">right</a></li>
+                    </ul> 
+                </li>
+                  </ul>
+                </li>
+                    <li><a href="#total">worksurface</a></li> 
             </ul>
           </li>
             
@@ -38,8 +66,9 @@
             
               
         <li><a href="https://github.com/marley1990">Follow me</a></li>
-        <li><a href="plasm/javaModel.html">Plasm Model</a></li>
-        <li><a href="python/pyplasmModel.html">PyPlasm Model</a></li>
+        <li><a href="https://github.com/cvdlab-cg/427501/blob/master/final-project/linx.js">View PyPlasm Code</a></li>
+        <li><a href="../plasm/javaModel.html">View Plasm Model</a></li>
+        <li><a href="../index.html">Home</a></li>
         <li><a href="">Downloads</a>
           <ul>
             <li><a href="https://github.com/marley1990/Modular-System/tarball/master">Tar</a></li>
@@ -125,14 +154,64 @@
 freestanding components to create a continuous workstation. With a variety of shapes and sizes, LINX will fit
 within the smallest office footprint or it can be grouped for large-scale shared applications.
         </p> </p>
-                 <img src="images/portfoglio.jpeg" style="padding-left:100px">
-               </img>
+                 <img src="images/portfoglio.jpeg" style="padding-left:100px"></img>
 
-          <h4>
-          <a name="PlasmModel" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
-          </span>&nbsp&nbsp</a><a style="float:right" href="plasm/javaModel.html">Go to Plasm Model
-        </a></h4>
         
+         
+          <h3>
+            <a name="Project" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+            </span></a>Animated Project on plasm.js</h3>
+            <div id="container"></div>
+            <button onclick="view()">view model</button>
+            <button onclick="closeVision()">close vision</button>
+                        <!-- <div id="plasm"></div> -->
+
+          
+          <h3>
+              <a name="linx furniture" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+              </span></a>Linx furniture</h3>
+
+              <p>One furniture line really can do it all! LINX modular furniture is different from conventional office lines. It is not a panel-based system, but a freestanding technical desking platform. This kind of construction gives you and your facility planners the ultimate flexibility in creating a space efficient office layout.</p>
+              <img src="images/linx-modular.png" style="padding-left:70px"></img>
+
+           <h3>
+              <a name="worksurface" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+              </span></a>Worksurface platforms</h3>
+
+              <p>Worksurface platforms in project are three:
+                <ul>
+                  <li>left side:</li>
+                  <a name="front"></a>
+                  <img  src="images/left-front.png"></img>
+                  <a name="behind"></a>
+                  <img src="images/left-behind.png"></img>
+                  <a name="oblique"></a>
+                  <img src="images/left.png"></img>
+
+                  <li>center side:</li>
+                  <a name="center"></a>
+                  <img src="images/center.png"></img>
+                  
+                  <li>right side:</li>
+                  <a name="right"></a>
+                  <img src="images/right.png"></img>
+
+                  <li>worksurface:</li>
+                  <a name="total"></a>
+                  <img src="images/worksurface.png"></img>
+                </ul>
+              </p>
+<p><pre><code>l = 2.60;r = 0.2;h = 0.05;
+ptl = [[0,0,h],[l,0,h],[l+0.05,r/4,h],[l+0.1,r/2,h],[l+0.05,r,h],[l,r,h],[0,r,h]];//this are the point of curve
+function create_ptl(l,r,h);//returned array with NUBS curve with ptl as controlpoints, center, end, and ptl
+function make_leg(l,r,h);//create leg for worksurface platforms
+function mapC(args); //args is array of curve(NUBS o BEZIER(S0)) that must be mapped in S1 
+function create_plane(l,r,h); //return an object, the worksurface platforms
+x_plane = h*41;y_plane = l;z_plane = r;
+new_heigh = h*40;new_prof = l/2;new_weigh = r-0.05;
+table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,behind])// base is the right leg, build through function mapC([create_ptl(l,r,h),create_ptl(new_prof,new_weigh,new_heigh])
+</code></pre></p>
+
 
 
           </section>
@@ -140,11 +219,28 @@ within the smallest office footprint or it can be grouped for large-scale shared
           </div>
         </div>
 
+
+
+        <!-- script plasm -->
+        <script src="support/jquery.js"></script>
+        <script src="support/mustache.js"></script>
+        <script src="support/numeric.js"></script>
+        <script src="support/director.js"></script>
+        <script src="support/three.js"></script>
+        <script src="support/three-detector.js"></script>
+        <script src="support/three-frame.js"></script>
+        <script src="support/three-stats.js"></script>
+        <script src="support/three-trackball.js"></script>
+        <script src="node_modules/simplexn.js/lib/simplexn.js"></script>
+        <script src="node_modules/f.js/lib/f.js"></script> 
+        <script src="lib/plasm.js"></script>
+        <script src="lib/plasm-fun.js"></script>
+
+
           <footer>
             <div class="inner">
             <h2>Copyright® Barbieri Marco</h2>
           </div>
-
           </footer>
 
 

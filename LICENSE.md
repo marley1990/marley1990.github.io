@@ -1,27 +1,3 @@
-# PLaSM boilerplate
-
-#### Just PLaSM, ready to use!
-
-## Getting started
-
-### Prerequisite
-
-Install [Node.js](http://nodejs.org/)
-
-Install [Component](https://github.com/component/component)  
-
-    npm install -g component
-   
-### Installation
-
-    git clone git@github.com:cvdlab/plasm-boilerplate.git
-    cd plasm-boilerplate
-    component install -d
-    component build -d
-    
-
-## LICENSE
-
 (The MIT License)
 
 Copyright (c) 2013 Enrico Marino and Federico Spini
