@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/menu.css"  />
+  <script type="text/javascript" src="javascript/main.js"></script>
+  <script type="text/javascript" src="javascript/linx.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Final Model plasm.js</title>
+  </head>
+
+  <body id="linx" onLoad="showModel()">
+    <header>
+        <div id="drop-menu">
+          <ul id="menu">
+        <li><a href="https://github.com/marley1990">Follow me</a></li>
+        <li><a href="https://github.com/cvdlab-cg/427501/blob/master/final-project/linx.js">View Java Code</a></li>
+        <li><a href="../python/pyplasmModel.html">PyPlasm Model</a></li>
+        <li><a href="javaModel.html">Plasm Model</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="">Downloads</a>
+          <ul>
+            <li><a href="https://github.com/marley1990/Modular-System/tarball/master">Tar Java Code</a></li>
+            <li><a href="https://github.com/marley1990/Modular-System/zipball/master">Zip Java Code</a></li>
+          </ul>
+        </li>
+          </ul>
+          </div>
+        </div>
+             <div style="float:left;position:fixed;margin-left:90.5%;margin-top:0.5em"> 
+      <a name="fb_share" type="button_count" share_url="http://marley1990.github.io/plasm/Final.html" href="http://www.facebook.com/sharer.php" style="margin-top:0.5em;margin-right:1em">Condividi su Facebook</a>
+        <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+</div>
+    </header>
+<style>
+#plasm >canvas{
+  width: 550px;
+  height:490px;
+  margin-top:50px;
+}
+
+</style>
+
+      <table >
+        <tr>
+        <td><!-- <div style="float:left;widht:35%;height:100%;margin-top:7%"> --><img src="images/linx-modular.png" style="margin-bottom:70px"><!-- </div> --></td>
+       <td><div id="plasm"></td>
+
+    </div>
+      </tr>
+      </table>
+
+
+
+        <!-- script plasm -->
+        <script src="support/jquery.js"></script>
+        <script src="support/mustache.js"></script>
+        <script src="support/numeric.js"></script>
+        <script src="support/director.js"></script>
+        <script src="support/three.js"></script>
+        <script src="support/three-detector.js"></script>
+        <script src="support/three-frame.js"></script>
+        <script src="support/three-stats.js"></script>
+        <script src="support/three-trackball.js"></script>
+        <script src="node_modules/simplexn.js/lib/simplexn.js"></script>
+        <script src="node_modules/f.js/lib/f.js"></script> 
+        <script src="lib/plasm.js"></script>
+        <script src="lib/plasm-fun.js"></script>
+
+
+          <footer>
+            <div class="inner">
+            <h2>Copyright® Barbieri Marco</h2>
+          </div>
+          </footer>
+
+  <script>
+    var p;
+    $(function () {
+      console.log('Starting PLaSM for Web-Index...');
+      p = new Plasm('plasm', 'plasm-inspector');
+      fun.PLASM(p);
+    });
+  </script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30496335-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+      </body>
+      </html>

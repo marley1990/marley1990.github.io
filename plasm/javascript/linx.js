@@ -55,7 +55,7 @@ var color = function(r,g,b,o){ // o must be in to interval 0 and 1
 
 var white  = color(255,250,250,0);
 
-var gray = color(96,123,139,0);
+var gray = color(159,182,205,0);
 
 var orchid = color(153,50,204,0)
 /* table leg function support*/

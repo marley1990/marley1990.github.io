@@ -33,7 +33,7 @@ def color(r,g,b,o):
 
 white  = COLOR([1,0.98,0.98]);
 
-gray = COLOR([0.4,0.5,0.55])
+gray = COLOR([0.62,0.71,0.80]) ##(159,182,205,0)
 
 orchid = COLOR(PURPLE)
 

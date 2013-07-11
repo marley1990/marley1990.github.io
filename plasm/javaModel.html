@@ -17,6 +17,8 @@
   <script type="text/javascript" src="javascript/table_leg4.js"></script>
   <script type="text/javascript" src="javascript/center_table.js"></script>
   <script type="text/javascript" src="javascript/table1.js"></script>
+  <script type="text/javascript" src="javascript/model.js"></script>
+  <script type="text/javascript" src="javascript/middle.js"></script>
 
 
 
@@ -24,7 +26,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Linx Modular System project</title>
+    <title>Javascript Model</title>
   </head>
 
   <body id="linx" >
@@ -59,7 +61,10 @@
                 </li>
                     <li><a href="#total">worksurface</a></li> 
                     <li><a href="#Integrated Storage">Integrated Storage</a></li>
-                    <li><a href="#Final_model_temp">Final model</a></li> 
+                    <li><a href="#Final_model_temp">Model</a></li>
+                    <li><a href="#middle">Middle</a></li>
+                    <li><a href="#Accessories">Accessories</a></li> 
+                    <li><a href="#FinalModel">Final model</a></li>
             </ul>
           </li>
             
@@ -203,11 +208,33 @@ table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,b
           </p>
           <h3>
             <a name="Final_model_temp" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
-          </span></a>Final model temporary</h3>
+          </span></a>Final model temporary&nbsp&nbsp<button type="submit" name="final_model_temo" value="View model" onclick="drawModel()"><a href="#Project">View model</a></button></li></h3>
           <p>To complete the office structure,I have rotated the half model respect z-axis for PI (angle).
-              Can see a screenshot</p>
+              Can see two screenshot: </p>
           <img src="images/final_model1.png"></img>
           <img src="images/final_model2.png"></img>
+          <h3>
+            <a name="middle" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Middle&nbsp&nbsp<button type="submit" name="middle" value="View model" onclick="drawMiddle()"><a href="#Project">View model</a></button></li></h3>
+          <p>The middle consists in  CUBOID that are properly rotate and translate and in Cylinder  </p>
+          <img src="images/final_model3.png"></img>
+          <img src="images/final_model4.png"></img>
+
+          <h3>
+            <a name="accessories" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Accessories</h3>
+          <p>Accessories:<ul>
+          <li>Monitor</li><img src="images/monitor.png"></img>
+          <li>Pen</li><img src="images/pen.png"></img>
+          <li>Pc</li><img src="images/pc.png"></img>
+          </ul>
+          </p>
+
+          <h3>
+          <a name="FinalModel" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Final</h3>
+          <p> Now we can see the final model on plasm.js enviroment:&nbsp&nbsp<a href="Final.html">View model</a></p>
+          <p>&nbsp&nbsp</p><br>
           </section>
 
           </div>

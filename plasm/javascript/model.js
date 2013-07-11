@@ -1,15 +1,15 @@
-
-function drawTable(){
+function drawModel(){
   var button = document.getElementById("object");
-  button.setAttribute("onclick","viewTable1()")
-  alert("Click on view object button to see table1")
+  button.setAttribute("onclick","viewModel()");
+  var dec = document.getElementById("decomposition");
+  dec.setAttribute("onclick","javascript:alert('Select the model: it is valid only for the table_leg,table_leg2, center_table and integrated storage')");
+  alert("Click on view object button to see model")
 }
 
-
-function viewTable1(){
+function viewModel(){
  var plasm = document.getElementById("plasm")
       if(plasm == null){
-  var message = 'Do you want see the table1?'
+  var message = 'Do you want see the model?'
 
   var choice = confirm(message)
 
@@ -23,7 +23,7 @@ function viewTable1(){
         canvas.setAttribute("onmouseover","hiddenBody()");
         canvas.setAttribute("onmouseout","clearBody()");
         canvas.setAttribute("height","500px");
-        showTable1()
+        showModelTemp()
   }
 }
 else{
@@ -31,9 +31,9 @@ else{
 }
 }
 
-var table1;
+var final_model_temp;
 
-function showTable1(){
+function showModelTemp(){
 /*
 support function
 */
@@ -249,6 +249,78 @@ var table_leg23 = white(STRUCT([T([1])([6-r])(make_leg(l,r,h)),create_plane(y_pl
 
 var table_leg2 = T([0,1])([8.52-dx+0.07,12.97])(R([0,1])(-PI/2)(table_leg23))
 
+/*other accessoris for table_leg*/
+
+var o2 = mapC([create_ptl(l/4,r-0.05,2)[2],
+              create_ptl(l/4,r-0.05,2)[0], 
+              create_ptl(l/4,r-0.05,4)[0],
+              create_ptl(l/4,r-0.05,4)[2],
+              create_ptl(l/4,r-0.05,2)[2]
+              ])
+
+var o3 = mapC([create_ptl(l/4,r-0.05,2)[2],
+              create_ptl(l/4,r-0.05,2)[0], 
+              create_ptl(l/4,r-0.05,4)[0],
+              create_ptl(l/4,r-0.05,4)[2],
+              create_ptl(l/4,r-0.05,2)[2]
+              ])
+
+var ptl_T = inverti_coordinate([[0,0,h],[l/2,0,h],[l/2+0.05,(r-0.05)/4,h],[l/2+0.1,(r-0.05)/2,h],[l/2+0.05,(r-0.05),h],[l/2,(r-0.05),h],[0,(r-0.05),h]],1,2)
+
+var ptl_tCenter = [[0,h,(r-0.05)/2]];
+
+var ptl2 = translatePoints(ptl_T,0,6,0);
+
+var ptl2Center = translatePoints(ptl_tCenter,0,6,0);
+
+var ptl3 = mapC([ptl_tCenter[0],
+                  genNUBS(ptl_T)[1],
+                  genNUBS(ptl2)[1],
+                  ptl2Center[0],
+                  BEZIER(S0)([[0,h,0],[0,h,r-0.05]]),
+                  BEZIER(S0)([[0,h+6,0],[0,h+6,r-0.05]])
+                    ])
+
+var o = STRUCT([T([1])([0.025])(o2),T([1])([6-r])(o3),T([1,2])([(r-0.05),2+0.1])(gray(CUBOID([0.01,6-2*(r-0.05),2-0.1]))),
+                T([1,2])([-0.065,4])(ptl3)])
+
+o = T([2])([h+r])(o)
+
+table_leg3 = T([1])([12.97-6+0.025])(o);
+
+//end
+
+/*accessoris for table_leg2*/
+var o22 = mapC([create_ptl(l/4,r-0.05,2+r)[0], 
+              create_ptl(l/4,r-0.05,6+r)[0],
+              create_ptl(l/4,r-0.05,6+r)[2],
+              create_ptl(l/4,r-0.05,2+r)[2]
+              ])
+
+var o23 = mapC([create_ptl(l/4,r-0.05,2+r)[0], 
+              create_ptl(l/4,r-0.05,6+r)[0],
+              create_ptl(l/4,r-0.05,6+r)[2],
+              create_ptl(l/4,r-0.05,2+r)[2]
+              ])
+
+var sc2 = STRUCT([o22,T([1])([6-(r-0.05)])(o23),T([1,2])([(r-0.05),2+0.1+r])(gray(CUBOID([0.01,6-2*(r-0.05),4-0.1-h]))),
+                  T([1,2])([(r-0.05),2+0.1+h+2+r])(COLOR([1,1,1])(CUBOID([l/2,6-2*(r-0.05),2-0.1-h]))),
+                  T([0,1,2])([l/2,(r-0.05),2+0.1+h+2+r])(gray(CUBOID([0.1,6-2*(r-0.05),2-0.1-h])))])
+
+
+var osc3 = T([0,1])([l/4,6])(R([0,1])(PI)(STRUCT([o22,T([1])([6-(r-0.05)])(o23)])))
+
+var sc3 =  STRUCT([osc3,T([0,1,2])([l/4,(r-0.05),2+0.1+h+r])(gray(CUBOID([0.01,6-2*(r-0.05),4-0.1-h]))),
+                  T([0,1,2])([-l/2+l/4,(r-0.05),2+0.1+h+2+r])(COLOR([1,1,1])(CUBOID([l/2,6-2*(r-0.05),2-0.1-h]))),
+                  T([0,1,2])([-l/2+l/4-0.1,(r-0.05),2+0.1+h+2+r])(gray(CUBOID([0.1,6-2*(r-0.05),2-0.1-h])))])
+
+
+
+table_leg22 = T([0,1,2])([8.52-dx+0.07,12.97,h])(R([0,1])(-PI/2)(sc2))
+
+table_leg4 = T([0,1,2])([8.52-dx+0.07,l/4,h])(R([0,1])(-PI/2)(sc3))
+
+//end
 
 //middle worksurface
 
@@ -304,20 +376,34 @@ var center_table = white(STRUCT([drs,close,behind0,behind1]))
 
 var table1 = T([1])([-12.97])(STRUCT([table_leg,table_leg2,center_table]))
 
-DRAW(table1)
+var model_temp = STRUCT([table_leg22,o])
+
+var model1 = T([1])([-12.97])(model_temp)
+
+var table2 = R([0,1])(PI/2)(table1);
+
+var model2 =STRUCT([table_leg3,table_leg4])
+
+var final_model1 = STRUCT([model1,model2,table1,table2])
+
+/*  END  finqui oooook*/
+
+var final_model2 = R([0,1])(PI)(final_model1)
 
 
+var final_model_temp = STRUCT([final_model1,final_model2])
 
+DRAW(final_model_temp)
 
 function Animate() {
-  var message = 'Do you want to activate the movement of the table1?'
+  var message = 'Do you want to activate the movement of the model?'
 
   var choice = confirm(message)
 
   if (choice == true) {
     setInterval(function () {
-    table1.rotate([0,1], PI/45)/*.rotate([1,2],PI/45).rotate([0,2],PI/45)*/;
-    }, 10);
+    final_model_temp.rotate([0,1], PI/45)/*.rotate([1,2],PI/45).rotate([0,2],PI/45)*/;
+    }, 100);
   }
   
 
@@ -325,5 +411,3 @@ function Animate() {
 
 Animate()
 }
-
-
