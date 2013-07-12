@@ -458,7 +458,6 @@ drscloseScalate =S([1,2])([0.5,0.5])(STRUCT([drs,close]))
 drsclose_T = T([2,3])([-6.55,hend-1.5+ddz+h+0.2])(STRUCT([sxdrs,dxdrs,drscloseScalate]))
 drsclose  = STRUCT([drsclose_T,R([1,2])(1*PI/2)(drsclose_T),R([1,2])(2*PI/2)(drsclose_T),R([1,2])(3*PI/2)(drsclose_T),R([1,2])(4*PI/2)(drsclose_T)])
 
-middle = STRUCT([drsclose,cubo_result,cubo_support_result,support_result,up])
 
 ##END
 
@@ -494,7 +493,10 @@ base = SKELETON(1)(MAP(BEZIER(S2)([circle1,[0,0,0]]))(domainPI))
 takepen = SKELETON(1)(MAP(BEZIER(S2)([circle2,circle1]))(domainPI))
 contenitor_pen = T([1,2,3])([6,-2,2+(r)])(STRUCT([array_pen,COLOR([1,1,1])(STRUCT([base,takepen]))]))
 array_contenitor_pen = STRUCT([contenitor_pen,T([1,2,3])([-4.3,0.6,hend-1.5+ddz+h+0.2+0.15])(contenitor_pen)])
-array_contenitor_pen2 = R([1,2])(PI)(array_contenitor_pen)
+
+array_contenitor_pen2 = STRUCT([array_contenitor_pen,R([1,2])(2*PI/2)(array_contenitor_pen)])
+
+
 
 ##start computer */
 computer1 = CUBOID([0.1,1,1])
@@ -572,9 +574,50 @@ pc_t = STRUCT([pc_map,pc_support,T([1,3])([-0.1,-0.1-0.1-0.025])(wheel),T([1,3])
 
 pc = T([1,2,3])([2,-11,0.225])(pc_t)
 
+pc_array = STRUCT([pc,R([1,2])(2*PI/2)(pc)])
+
+wheel4R = STRUCT([T([2,3])([0.3,-0.1-0.1-0.025])(wheel),T([1,2,3])([-0.75,0.3,-0.1-0.1-0.025])(wheel)])
+
+w = 1;
+
+h3 = 1.5;
+
+n = 1
+
+def create_stair(w,h3,n):
+	front1 = white(CUBOID([w,0.1,h3*(n)]));
+	up1 = white(T([3])([h3*(n)])(CUBOID([w,w,0.1])));
+	left1 = white(R([1,2])(PI/2)(CUBOID([w,0,h3*(n)])));
+	righ3t1 = T([2])([w-0.1])(front1)
+	down = white(CUBOID([w,w]));
+	stair1 = STRUCT([front1,up1,left1,righ3t1,down]);
+	return stair1;
+
+
+
+draw_board0 = white(T([2,3])([(w)*0.2,h3*0.1])(CUBOID([w-0.1,0.05,(h3/2)*0.8]))); 
+
+draw_down = COLOR([0,0,0])(T([2,3])([(w)*0.2,(h3/2)*0.2])(CUBOID([w-0.1,w*0.6])))
+
+draw_board1 = T([2])([(w)*0.6])(draw_board0);
+
+draw_board = T([1])([0.1])(STRUCT([draw_board0,draw_down,draw_board1]))
+
+draw_righ3t = white(T([1])([w])(CUBOID([0.1,w,h3/2])))
+
+draw_object = STRUCT([draw_board ,draw_righ3t])
+
+drawer1 = STRUCT([draw_object,T([3])([h3/2+0.05])(S([3])([0.5])(draw_object)),T([3])([h3/2+h3/4+0.1])(S([3])([0.5])(draw_object)),
+        create_stair(w,h3,n)])
+
+drawer = T([1,2,3])([8.52-dx+0.07+4.9,-1.4,0.275])(R([1,2])(-PI/2)(STRUCT([drawer1,T([1,2])([w,-0.25])(wheel4R)])))
+
+array_drawer = STRUCT([drawer,R([1,2])(1*PI/2)(drawer),R([1,2])(2*PI/2)(drawer),R([1,2])(3*PI/2)(drawer)])
+
+
 final_model = STRUCT([final_model1,final_model2,cyl,support_result,cubo_result,cubo_support_result,up,
-	drsclose,book,R([1,2])(PI)(book),array_contenitor_pen,array_contenitor_pen2,computer_array,
-	R([1,2])(PI)(computer_array),pc,R([1,2])(PI)(pc)
+	drsclose,book,R([1,2])(PI)(book),array_contenitor_pen2,computer_array,
+	R([1,2])(PI)(computer_array),pc_array,array_drawer
 	])
 
 DRAW(final_model)

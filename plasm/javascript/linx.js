@@ -546,7 +546,7 @@ var create_pen = function(r,h){
 
 var pen = R([1,2])(PI/14)(create_pen(0.05,0.9))
 var array_pen = STRUCT([pen])
-for(var i = 1 ; i<=4; i++){
+for(var i = 1 ; i<=3; i++){
 array_pen = STRUCT([array_pen,R([0,1])([i*PI/2])(pen)])
 }
 
@@ -556,7 +556,11 @@ var base = SKELETON(1)(MAP(BEZIER(S1)([circle1,[0,0,0]]))(DOMAIN([[0,2*PI],[0,1]
 var takepen = SKELETON(1)(MAP(BEZIER(S1)([circle2,circle1]))(DOMAIN([[0,2*PI],[0,1]])([10,10])))
 var contenitor_pen = T([0,1,2])([6,-2,2+(r)])(STRUCT([array_pen,COLOR([1,1,1])(STRUCT([base,takepen]))]))
 var array_contenitor_pen = STRUCT([contenitor_pen,T([0,1,2])([-4.3,0.6,hend-1.5+ddz+h+0.2+0.15])(contenitor_pen)])
-var array_contenitor_pen2 = R([0,1])(PI)(array_contenitor_pen)
+var array_contenitor_pen2 = STRUCT([array_contenitor_pen])
+
+for(var i = 1 ; i<=3; i++){
+array_contenitor_pen2 = STRUCT([array_contenitor_pen2,R([0,1])([i*PI/2])(array_contenitor_pen)])
+}
 
 /*start computer */
 var computer1 = CUBOID([0.1,1,1])
@@ -570,6 +574,8 @@ var diskc = T([1,2])([0.5,-0.3])(DISK(0.5,0)([20,20]))
 var computer = STRUCT([computer1,computer2,computer3,computer4,computer5,scr,COLOR([0,0,0])(cylinder),COLOR([0,0,0])(diskc)])
 var computer_array = STRUCT([T([0,1,2])([1.2,-12.97+3,2+0.601])(computer),
                              T([0,1,2])([2,-12.97+3+4.5,2+0.601])(R([0,1])(PI/6)(computer)) ])
+
+
 /*end computer*/
 
 /* pc*/
@@ -581,7 +587,6 @@ var pc_point = [[0,0,0],[0,0,1.3],[0,0.01,1.3],[0,.79,1.3],[0,0.8,1.3],[0,0.8,0]
 var pc_end = BEZIER(S0)([[0,0,0],[0,0.8,0]])
 
 var pc_nubs = NUBS(S0)(1)([0,0,1,2,3,4,5,6,6])(pc_point)
-
 var pc_point1 = [[-0.05,0,0],[-0.05,0,1.4],[-0.05,0.01,1.4],[-0.05,.79,1.4],[-0.05,0.8,1.4],[-0.05,0.8,0],[-0.05,0.8,0]]
 
 var pc_nubs1 = NUBS(S0)(1)([0,0,1,2,3,4,5,6,6])(pc_point1)
@@ -608,6 +613,7 @@ var pc_support = black(STRUCT([pc_support23,T([1])([0.85])(pc_support23),pc_supp
 
 var pc_map = mapC([pc_end,pc_nubs,pc_nubs1,pc_nubs2,pc_nubs3,pc_end3,pc_end])
 
+
 var torus = function (R, r) {
   return function (v) {
     var a = v[0];
@@ -620,6 +626,7 @@ var torus = function (R, r) {
     return [u,v,w];
   }
 }
+
 
 var domainWheel = DOMAIN([[0,2*PI],[0,1]])([20,20])
 
@@ -646,19 +653,79 @@ var wheelR2 = T([1])([0.6])(wheelRR)
 
 var wheel = black(STRUCT([wheelRR,wheelR2]))
 
-
+var wheel4R = STRUCT([T([1,2])([0.3,-0.1-0.1-0.025])(wheel),T([0,1,2])([-0.75,0.3,-0.1-0.1-0.025])(wheel)])
 
 var pc_t = STRUCT([pc_map,pc_support,T([0,2])([-0.1,-0.1-0.1-0.025])(wheel),T([0,2])([-0.95,-0.1-0.1-0.025])(wheel)]);
 
 var pc = T([0,1,2])([2,-11,0.225])(pc_t)
 
+
+var array_pc = STRUCT([pc])
+
+for(var i = 1 ; i<=3; i++){
+array_pc = STRUCT([array_pc,R([0,1])([i*PI/2])(pc)])
+}
+
+/* start */
+
+var w = 1;
+
+var h3 = 1.5;
+
+n = 1
+
+var create_stair = function(w,h3,n){
+
+
+    var front1 = white(CUBOID([w,0.1,h3*(n)]));
+    var up1 = white(T([2])([h3*(n)])(CUBOID([w,w,0.1])));
+    var left1 = white(R([0,1])(PI/2)(CUBOID([w,0,h3*(n)])));
+    var righ3t1 = T([1])([w-0.1])(front1)
+    var down = white(CUBOID([w,w]));
+    var stair1 = STRUCT([front1,up1,left1,righ3t1,down]);
+    
+
+
+  return stair1;
+}
+
+
+/*drawer stair*/
+
+var draw_board0 = white(T([1,2])([(w)*0.2,h3*0.1])(CUBOID([w-0.1,0.05,(h3/2)*0.8]))); 
+
+var draw_down = COLOR([0,0,0])(T([1,2])([(w)*0.2,(h3/2)*0.2])(CUBOID([w-0.1,w*0.6])))
+
+var draw_board1 = T([1])([(w)*0.6])(draw_board0);
+
+var draw_board = T([0])([0.1])(STRUCT([draw_board0,draw_down,draw_board1]))
+
+var draw_righ3t = white(T([0])([w])(CUBOID([0.1,w,h3/2])))
+
+var draw_object = STRUCT([draw_board ,draw_righ3t])
+
+var drawer1 = STRUCT([draw_object,T([2])([h3/2+0.05])(S([2])([0.5])(draw_object)),T([2])([h3/2+h3/4+0.1])(S([2])([0.5])(draw_object)),
+        create_stair(w,h3,n)])
+
+//var table_leg2 = T([0,1])([8.52-dx+0.07,12.97])(R([0,1])(-PI/2)(table_leg23))
+
+var drawer = T([0,1,2])([8.52-dx+0.07+4.9,-1.4,0.275])(R([0,1])(-PI/2)(STRUCT([drawer1,T([0,1])([w,-0.25])(wheel4R)])))
+
+var array_drawer = STRUCT([drawer])
+
+for(var i = 1 ; i<=3; i++){
+array_drawer= STRUCT([array_drawer,R([0,1])(i*PI/2)(drawer)])
+}
+
+
 /*END*/
 
 var final_model = STRUCT([final_model1,final_model2,cyl,support_result,cubo_result,cubo_support_result,up,
-  drsclose,book,R([0,1])(PI)(book),array_contenitor_pen,array_contenitor_pen2,computer_array,
-  R([0,1])(PI)(computer_array),pc,R([0,1])(PI)(pc)])
+  drsclose,book,R([0,1])(PI)(book),array_contenitor_pen2,computer_array,
+  R([0,1])(PI)(computer_array),R([0,1])(PI/2)(computer_array),R([0,1])(3*PI/2)(computer_array),array_pc,array_drawer])
 
 DRAW(final_model)
+
 
 
 
