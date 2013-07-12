@@ -664,7 +664,7 @@ DRAW(final_model)
 
 
 function Animate() {
-  var message = 'Do you want to activate the movement of the Marco Barbieri model?'
+  var message = 'Do you want to activate the movement of linx model?'
 
   var choice = confirm(message)
 

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/menu.css"  />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Python Model</title>
+  </head>
+
+  <body id="linx" >
+    <header>
+      <div id="drop-menu">
+        <ul id="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">Sidebar</a>
+              <ul>
+                            <!-- start sidebar -->
+              <li><a href="#Target">Target</a></li>
+              <li><a href="#Python Model">Python Model</a></li>
+              <li><a href="#worksurface">Worksurface platform</a></li> 
+              <li><a href="#total">worksurface</a></li> 
+              <li><a href="#Integrated Storage">Integrated Storage</a></li>
+              <li><a href="#Final_model_temp">Model</a></li>
+              <li><a href="#middle">Middle</a></li>
+              <li><a href="#Accessories">Accessories</a></li> 
+              <li><a href="#FinalModel">Final model</a></li>
+            </ul>
+          </li>
+            
+            <!-- end sidebar -->
+          <li><a href="https://github.com/marley1990">Follow me</a></li>
+          <li><a href="https://github.com/cvdlab-cg/427501/blob/master/final-project/python/linx.py">View Python Code</a></li>
+          <li><a href="../plasm/javascriptModel.html">Javscript Model</a></li>
+          
+          <li><a href="">Downloads</a>
+            <ul>
+              <li><a href="https://github.com/marley1990/Modular-System/tarball/master">Tar</a></li>
+              <li><a href="https://github.com/marley1990/Modular-System/zipball/master">Zip</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="float:left;position:fixed;margin-left:90.5%;margin-top:0.5em"> 
+      <a name="fb_share" type="button_count" share_url="http://marley1990.github.io/python/pyplasmModel.html" href="http://www.facebook.com/sharer.php" style="margin-top:0.5em;margin-right:1em">Condividi su Facebook</a>
+      <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    </div>
+  </header>
+
+
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <section id="main-content">
+
+       <h3>
+        <a name="Target" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+        </span></a>Python</h3>
+
+        <p>Python is a high-level programming language, object-oriented, suitable, among other uses, to develop distributed applications, scripting, numeric computing and system testing. Python is often compared to Tcl, Perl, Java, JavaScript, Visual Basic or Scheme.&nbsp&nbsp(Go to ufficial <a href="http://www.python.it">site</a>)
+        </p> 
+        <h4> Used modules</h4>
+        <p>
+          For this project are been used two particular module:<ul>
+          <li>1. <a rel="stylesheet" type="text/css" href="http://www.plasm.net/download/plasm_314_2/">Pyplasm&nbsp&nbsp</a>
+           <a href="https://github.com/plasm-language/pyplasm">(Github link)</a></li>
+           <li>2.<a href="https://github.com/cvdlab/larpy"> Lar </a></li>
+           </ul>
+           </p>
+           <h3>
+            <a name="Python Model" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+            </span></a>Python Model</h3>
+
+            <p>The python model was developed by transforming the javascript code in python code, in particular the definition of functions and variables.<br>
+              The model was developed by <u>transforming the javascript code in python code, in particular the definition of functions and variables</u>. It is recalled that while in javascript coordinates of translation and rotation start at 0, in pyplasm the coordinates starting from 1, with x = 1, y = 2, z = 3; mappings with Bezier curves ranging from S1 to S3 and not more from S0 to S2.
+              <br>
+              The NUBS (Non Uniform BSpline) of Javascript have been sostutite with BEZIER (S1) and the draw with view.
+            </p>
+
+
+            <h3>
+              <a name="worksurface" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+              </span></a>Worksurface platforms</h3>
+              <p>To create th worksurface platform,I used some fixed paramenter, like plane's widht and heigh, and some parameter function to make support's plane and the same plane. Can see the pseudo-code below. The heigh of plane is 0.20, while its widht is 6 and its depth is 2.70; for the support the heigh is 0.05 + 2, the width is 0.15 and depth is 2.70. The support's plane and plane is create by 4 function : CREATE_PTL(...) is used to return an array of curve to map and points; MAPC(...) take an array of curve that have been mapped in S2 with BEZIER function (the curve has mapped with the next one); while CREATE_PLANE and MAKE_LEG use the other two function in order to create plane and support's plane.
+              </p>
+              <p><h4>PROBLEM:</h4><p>
+                The more complex the platform was center_table: the problem lies in the fact that it is not possible to rotate an array of points on an axis that would return the new array of points, in qunato is possible to perform the rotation only with objects, but it remains impossible to map in S1,objects already mapped in S0.</p>
+              </p>
+              <p><h4>SOLUTION:</h4><p>
+               The solution comes from the idea of having an array of points and not rotated objects. My need was to rotate around the Z axis, so a rotation matrix was applied (multiplied) to my vector of points.
+               <pre><code>
+def rotZ (arrayOfPoints,a):
+result = [];
+for point in arrayOfPoints:
+  x,y,z = point;
+  result.append([COS(a)*x+SIN(a)*y+0,-SIN(a)*x+COS(a)*y+0,0+0+1*z]);
+return result;
+          </code></pre>
+          As first curve is been taken the final curve of table_leg, while as end curve, the start curve of table_leg2. The point of the first curve has been rotated until to end curve. 
+        </p>
+      </p>
+      <p>Worksurface platforms in project are three:
+        <ul style="list-style:none">
+         
+            <img src="images/left.png" style="width:200px;heigh:150px"></img>
+            <img src="images/center.png" style="width:200px;heigh:130px"></img>
+            <img src="images/right.png" style="width:200px;heigh:120px"></img>
+            <img src="images/worksurface.png" style="width:610px"></img>
+         
+                </ul>
+              </p>
+              <p><pre><code>
+l = 2.60;r = 0.2;h = 0.05;
+<code id="commento" style="color:#8B2323">//this are the point of curve</code>
+ptl = [[0,0,h],[l,0,h],[l+0.05,r/4,h],[l+0.1,r/2,h],[l+0.05,r,h],[l,r,h],[0,r,h]];
+<code id="commento" style="color:#8B2323">//returned array with BEZIER(S1) curve with ptl as controlpoints, center, end, and ptl</code>
+def create_ptl(l,r,h);
+<code id="commento" style="color:#8B2323">//create leg for worksurface platforms</code>
+def make_leg(l,r,h);
+<code id="commento" style="color:#8B2323">//args is array of curve(BEZIER(S1)) that must be mapped in S2 </code>
+def mapC(args);
+<code id="commento" style="color:#8B2323">//return an object, the worksurface platforms</code>
+def create_plane(l,r,h); 
+x_plane = h*41;y_plane = l;z_plane = r;
+new_heigh = h*40;new_prof = l/2;new_weigh = r-0.05;
+<code id="commento" style="color:#8B2323">// base is the right leg, build through function mapC([create_ptl(l,r,h),create_ptl(new_prof,new_weigh,new_heigh])</code>
+table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,behind])
+              </code></pre></p>
+
+              <h3>
+                <a name="Integrated Storage" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+                </span></a>Integrated Storage Solutions</h3>
+
+                <p>For the integrated storage are create two models that after are been translated. To achieve this target you have not added new features</p>
+                <p>
+                  The integrated storage are two:
+                  <ul>
+                    <li>Integrated storage (table_leg3):</li>
+                    <img src="images/table_leg3.png"></img>
+
+                    <li>Integrated storage  (table_leg4):</li>
+                    <img src="images/table_leg4.png"></img>
+                  </ul>
+
+                </p>
+                <h3>
+                  <a name="Final_model_temp" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+                  </span></a>Final model temporary</h3>
+                  <p>To complete the office structure,I have rotated the half model respect z-axis for PI (angle).
+                    Can see two screenshot: </p>
+                    <img src="images/final_model1.png" style="width:300px;heigh:150px"></img>
+                    <img src="images/final_model2.png" style="width:300px;heigh:150px"></img>
+                    <h3>
+                      <a name="middle" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+                      </span></a>Middle</h3>
+                      <p>The middle consists in  CUBOID that are properly rotate and translate and in Cylinder, with center in (0,0,0)  </p>
+                      <img src="images/final_model3.png" style="width:300px;heigh:150px"></img>
+                      <img src="images/final_model4.png" style="width:300px;heigh:150px"></img>
+
+                      <h3>
+                        <a name="accessories" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+                        </span></a>Accessories</h3>
+                        <p>Accessories:<ul>
+                          <li>Monitor</li><img src="images/monitor.png" style="width:150px;heigh:150px"></img>
+                          <li>Pen</li><img src="images/pen.png" style="width:150px;heigh:150px"></img>
+                          <li>Pc</li><img src="images/pc.png" style="width:150px;heigh:150px"></img>
+                        </ul>
+                      </p>
+
+                      <h3>
+                        <a name="FinalModel" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+                        </span></a>Final</h3>
+                        <p> Now we can see the final model's screenshot:&nbsp&nbsp</p>
+                        <img src="images/final_model5.png" style="width:600px;heigh:300px"></img>
+                        <img src="images/final_model6.png" style="width:600px;heigh:300px"></img>
+
+                        <h4>
+                          <a name="#" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+                          </span><a href="../index.html">Go back Home
+                        </a></a><a style="float:right" href="../plasm/javascriptModel.html">Go to Javascript Model
+                      </a></h4>
+
+
+
+                    </section>
+
+                  </div>
+                </div>
+                <footer>
+                  <div class="inner">
+                    <h2>Copyright® Barbieri Marco</h2>
+                  </div>
+                </footer>
+
+
+
+
+              </body>
+              </html>

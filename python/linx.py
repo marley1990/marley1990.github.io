@@ -3,7 +3,7 @@ from pyplasm import *
 
 DRAW = VIEW
 
-domain = GRID([10])
+domain = GRID([5])
 domain2D = GRID([10,10])
 
 ##support function
@@ -31,9 +31,9 @@ def color(r,g,b,o):
 			return COLOR([r/255,g/255,b/255,o])(ob);
 	return color0;
 
-white  = COLOR([1,0.98,0.98]);
+white  = COLOR([1,.98,.98]);
 
-gray = COLOR([0.62,0.71,0.80]) ##(159,182,205,0)
+gray = COLOR([0.62,0.71,0.80])
 
 orchid = COLOR(PURPLE)
 
@@ -222,22 +222,22 @@ ptl_T = inverti_coordinate([[0,0,h],[l/2,0,h],[l/2+0.05,(r-0.05)/4,h],[l/2+0.1,(
 
 ptl_tCenter = [[0,h,(r-0.05)/2]];
 
-ptl2 = translatePoints(ptl_T,0,6,0);
+ptl2 = translatePoints(ptl_T,0,-6.05,0);
 
-ptl2Center = translatePoints(ptl_tCenter,0,6,0);
+ptl2Center = translatePoints(ptl_tCenter,0,-6.05,0);
 
 ptl3 = mapC([ptl_tCenter[0],
                   genNUBS(ptl_T)[1],
                   genNUBS(ptl2)[1],
                   ptl2Center[0],
                   BEZIER(S1)([[0,h,0],[0,h,r-0.05]]),
-                  BEZIER(S1)([[0,h+6,0],[0,h+6,r-0.05]])
+                  BEZIER(S1)([[0,h-6.05,0],[0,h-6.05,r-0.05]])
                     ])
 
 o = STRUCT([T([2])([0.025])(o2),T([2])([6-r])(o3),T([2,3])([(r-0.05),2+0.1])(gray(CUBOID([0.01,6-2*(r-0.05),2-0.1]))),
-                T([2,3])([-0.065,4])(white(ptl3))])
+                T([2,3])([-0.065+6.05+0.05,4])(white(ptl3))])
 
-o = T([3])([h+r])(o)
+o = white(T([3])([h+r])(o))
 
 table_leg3 = T([2])([12.97-6+0.025])(o);
 ##end
@@ -447,8 +447,8 @@ drsclose_pointdx = translatePoints(scalePoints(translatePoints(rotZ(t,PI/2),l*0.
 dxend = BEZIER(S1)([[6.675,6.5,2.05],[6.675,6.5,2.25]])
 
 
-sxdrs = STRUCT([MAP(BEZIER(S2)([sxend,genNUBS(drsclose_pointsx)[1]]))(GRID([10,10])),
-            MAP(BEZIER(S2)([genNUBS(sx)[1],genNUBS(drsclose_pointsx)[1]]))(GRID([10,10]))])
+sxdrs = STRUCT([MAP(BEZIER(S2)([genNUBS(drsclose_pointsx)[1],sxend]))(GRID([10,10])),
+            MAP(BEZIER(S2)([genNUBS(drsclose_pointsx)[1],genNUBS(sx)[1]]))(GRID([10,10]))])
 
 dxdrs = STRUCT([MAP(BEZIER(S2)([dxend,genNUBS(drsclose_pointdx)[1]]))(GRID([10,10])),
             MAP(BEZIER(S2)([genNUBS(dx2)[1],genNUBS(drsclose_pointdx)[1]]))(GRID([10,10]))])
@@ -458,6 +458,7 @@ drscloseScalate =S([1,2])([0.5,0.5])(STRUCT([drs,close]))
 drsclose_T = T([2,3])([-6.55,hend-1.5+ddz+h+0.2])(STRUCT([sxdrs,dxdrs,drscloseScalate]))
 drsclose  = STRUCT([drsclose_T,R([1,2])(1*PI/2)(drsclose_T),R([1,2])(2*PI/2)(drsclose_T),R([1,2])(3*PI/2)(drsclose_T),R([1,2])(4*PI/2)(drsclose_T)])
 
+middle = STRUCT([drsclose,cubo_result,cubo_support_result,support_result,up])
 
 ##END
 

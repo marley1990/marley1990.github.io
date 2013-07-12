@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/menu.css"  />
+  <script type="text/javascript" src="javascript/main.js"></script>
+  <script type="text/javascript" src="javascript/linx.js"></script>
+  <script type="text/javascript" src="javascript/table_leg.js"></script>
+  <script type="text/javascript" src="javascript/table_leg2.js"></script>
+  <script type="text/javascript" src="javascript/table_leg3.js"></script>
+  <script type="text/javascript" src="javascript/table_leg4.js"></script>
+  <script type="text/javascript" src="javascript/center_table.js"></script>
+  <script type="text/javascript" src="javascript/table1.js"></script>
+  <script type="text/javascript" src="javascript/model.js"></script>
+  <script type="text/javascript" src="javascript/middle.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Javascript Model</title>
+  </head>
+
+  <body id="linx" >
+    <header>
+        <div id="drop-menu">
+          <ul id="menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Sidebar</a>
+              <ul>
+                            <!-- start sidebar -->
+              <li><a href="#Project">Animated Project on plasm.js</a></li>
+              <li><a href="#linx furniture">Linx furniture</a></li>
+              <li><a href="#worksurface">Worksurface platforms:</a>
+                   <ul>
+                    <li><a href="#f">left-side</a>
+                      <ul>
+                    <li><a href="#front">left-front</a></li>
+                    <li><a href="#behind">left-behind</a></li>
+                    <li><a href="#oblique">left</a></li>
+                      </ul>
+                  </li> 
+                  
+                    <li><a href="#">center-side</a><ul>
+                    <li><a href="#center">center</a></li>
+                   </ul>
+                  </li>
+                  <li><a href="#">right-side</a>
+                    <ul>
+                      <li><a href="#right">right</a></li>
+                    </ul> 
+                </li>
+                  </ul>
+                </li>
+                    <li><a href="#total">worksurface</a></li> 
+                    <li><a href="#Integrated Storage">Integrated Storage</a></li>
+                    <li><a href="#Final_model_temp">Model</a></li>
+                    <li><a href="#middle">Middle</a></li>
+                    <li><a href="#Accessories">Accessories</a></li> 
+                    <li><a href="#FinalModel">Final model</a></li>
+            </ul>
+          </li>
+            
+            <!-- end sidebar -->
+            
+              
+        <li><a href="https://github.com/marley1990">Follow me</a></li>
+        <li><a href="https://github.com/cvdlab-cg/427501/blob/master/final-project/Javascript/linx.js">View Javascript Code</a></li>
+        <li><a href="../python/pythonModel.html">Python Model</a></li>
+        
+        <li><a href="">Downloads</a>
+          <ul>
+            <li><a href="https://github.com/marley1990/Modular-System/tarball/master">Tar</a></li>
+            <li><a href="https://github.com/marley1990/Modular-System/zipball/master">Zip</a></li>
+          </ul>
+        </li>
+          </ul>
+          </div>
+        </div>
+             <div style="float:left;position:fixed;margin-left:90.5%;margin-top:0.5em"> 
+      <a name="fb_share" type="button_count" share_url="http://marley1990.github.io" href="http://www.facebook.com/sharer.php" style="margin-top:0.5em;margin-right:1em">Condividi su Facebook</a>
+        <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+</div>
+    </header>
+
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+         
+         
+         
+          <h3>
+            <a name="Project" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+            </span></a>Animated Project on plasm.js</h3>
+            <div id="container"></div>
+            <button onclick="javascript:alert('Select the model')" id="object">view object</button>
+            <button onclick="view()">view model</button>
+            <button onclick="closeVision()">close vision</button>
+            <button onclick="javascript:alert('Select the model: it is valid only for the table_leg,table_leg2, center_table and integrated storage')" id="decomposition">decomposition</button>
+                        <!-- <div id="plasm"></div> -->
+
+          
+          <h3>
+              <a name="linx furniture" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+              </span></a>Linx furniture</h3>
+
+              <p>One furniture line really can do it all! LINX modular furniture is different from conventional office lines. It is not a panel-based system, but a freestanding technical desking platform. This kind of construction gives you and your facility planners the ultimate flexibility in creating a space efficient office layout.</p>
+              <img src="images/linx-modular.png" style="padding-left:70px"></img>
+
+           <h3>
+              <a name="worksurface" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+              </span></a>Worksurface platforms</h3>
+              <p>To create th worksurface platform,I used some fixed paramenter, like plane's widht and heigh, and some parameter function to make support's plane and the same plane. Can see the pseudo-code below. The heigh of plane is 0.20, while its widht is 6 and its depth is 2.70; for the support the heigh is 0.05 + 2, the width is 0.15 and depth is 2.70. The support's plane and plane is create by 4 function : CREATE_PTL(...) is used to return an array of curve to map and points; MAPC(...) take an array of curve that have been mapped in S2 with BEZIER function (the curve has mapped with the next one); while CREATE_PLANE and MAKE_LEG use the other two function in order to create plane and support's plane.
+              </p>
+              <p><h4>PROBLEM:</h4><p>
+                The more complex the platform was center_table: the problem lies in the fact that it is not possible to rotate an array of points on an axis that would return the new array of points, in qunato is possible to perform the rotation only with objects, but it remains impossible to map in S1,objects already mapped in S0.</p>
+              </p>
+              <p><h4>SOLUTION:</h4><p>
+             The solution comes from the idea of having an array of points and not rotated objects. My need was to rotate around the Z axis, so a rotation matrix was applied (multiplied) to my vector of points.
+             <pre><code>
+function rotZ (arrayOfPoints,a) {
+  var result = [];
+  for (i=0; i < arrayOfPoints.length; i++) {
+    p = arrayOfPoints[i]
+    AffineTransformation = [[COS(a),SIN(a),0],[-SIN(a),COS(a),0],[0,0,1]]
+    var mul = numeric.dot(AffineTransformation,p)
+    result=result.concat([mul])
+  }
+  return result
+}
+             </code></pre>
+             As first curve is been taken the final curve of table_leg, while as end curve, the start curve of table_leg2. The point of the first curve has been rotated until to end curve. 
+            </p>
+              </p>
+              <p>Worksurface platforms in project are three:
+                <ul>
+                  <li>left side (table_leg):&nbsp&nbsp<button type="submit" name="table_leg" value="View model"
+                    onclick="drawTable_leg()"><a href="#Project">View model</a></button></li>
+                  <a name="front"></a>
+                  <img  src="images/left-front.png"></img>
+                  <a name="behind"></a>
+                  <img src="images/left-behind.png"></img>
+                  <a name="oblique"></a>
+                  <img src="images/left.png"></img>
+                  
+                  <p>&nbsp&nbsp</p><br>
+                  <li>center side (table_leg2):&nbsp&nbsp<button type="submit" name="center_table" value="View model"
+                    onclick="drawCenter_table()"><a href="#Project">View model</a></button></li>
+                  <a name="center"></a>
+                  <img src="images/center.png"></img>
+                  
+                  <p>&nbsp&nbsp</p><br>
+                  <li>right side (center_table):&nbsp&nbsp<button type="submit" name="table_leg2" value="View model"
+                    onclick="drawTable_leg2()"><a href="#Project">View model</a></button></li>
+                  <a name="right"></a>
+                  <img src="images/right.png"></img>
+                  
+                  <p>&nbsp&nbsp</p><br>
+                  <li>worksurface (table1):&nbsp&nbsp<button type="submit" name="table1" value="View model"
+                    onclick="drawTable()"><a href="#Project">View model</a></button></li>
+                  <a name="total"></a>
+                  <img src="images/worksurface.png"></img>
+                </ul>
+              </p>
+<p><pre><code>l = 2.60;r = 0.2;h = 0.05;
+<code id="commento" style="color:#8B2323">//this are the point of curve</code>
+ptl = [[0,0,h],[l,0,h],[l+0.05,r/4,h],[l+0.1,r/2,h],[l+0.05,r,h],[l,r,h],[0,r,h]];
+<code id="commento" style="color:#8B2323">//returned array with NUBS curve with ptl as controlpoints, center, end, and ptl</code>
+function create_ptl(l,r,h);
+<code id="commento" style="color:#8B2323">//create leg for worksurface platforms</code>
+function make_leg(l,r,h);
+<code id="commento" style="color:#8B2323">//args is array of curve(NUBS o BEZIER(S0)) that must be mapped in S1 </code>
+function mapC(args);
+<code id="commento" style="color:#8B2323">//return an object, the worksurface platforms</code>
+function create_plane(l,r,h); 
+x_plane = h*41;y_plane = l;z_plane = r;
+new_heigh = h*40;new_prof = l/2;new_weigh = r-0.05;
+<code id="commento" style="color:#8B2323">// base is the right leg, build through function mapC([create_ptl(l,r,h),create_ptl(new_prof,new_weigh,new_heigh])</code>
+table_leg = STRUCT([make_leg(l,r,h),create_plane(y_plane,z_plane,x_plane),base,behind])
+</code></pre></p>
+
+          <h3>
+            <a name="Integrated Storage" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Integrated Storage Solutions</h3>
+
+          <p>For the integrated storage are create two models that after are been translated. To achieve this target you have not added new features</p>
+          <p>
+            The integrated storage are two:
+            <ul>
+                <li>Integrated storage (table_leg3):&nbsp&nbsp<button type="submit" name="table_leg3" value="View model" onclick="drawTable_leg3()"><a href="#Project">View model</a></button></li>
+                <a name="center"></a>
+              <img src="images/table_leg3.png"></img>
+                  
+              <p>&nbsp&nbsp</p><br>
+                <li>Integrated storage  (table_leg4):&nbsp&nbsp<button type="submit" name="table_leg4" value="View model" onclick="drawTable_leg4()"><a href="#Project">View model</a></button></li>
+                <a name="right"></a>
+              <img src="images/table_leg4.png"></img>
+            </ul>
+
+          </p>
+          <h3>
+            <a name="Final_model_temp" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Final model temporary&nbsp&nbsp<button type="submit" name="final_model_temo" value="View model" onclick="drawModel()"><a href="#Project">View model</a></button></li></h3>
+          <p>To complete the office structure,I have rotated the half model respect z-axis for PI (angle).
+              Can see two screenshot: </p>
+          <img src="images/final_model1.png"></img>
+          <img src="images/final_model2.png"></img>
+          <h3>
+            <a name="middle" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Middle&nbsp&nbsp<button type="submit" name="middle" value="View model" onclick="drawMiddle()"><a href="#Project">View model</a></button></li></h3>
+          <p>The middle consists in  CUBOID that are properly rotate and translate and in Cylinder  </p>
+          <img src="images/final_model3.png"></img>
+          <img src="images/final_model4.png"></img>
+
+          <h3>
+            <a name="accessories" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Accessories</h3>
+          <p>Accessories:<ul>
+          <li>Monitor</li><img src="images/monitor.png"></img>
+          <li>Pen</li><img src="images/pen.png"></img>
+          <li>Pc</li><img src="images/pc.png"></img>
+          </ul>
+          </p>
+
+          <h3>
+          <a name="FinalModel" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span></a>Final</h3>
+          <p> Now we can see the final model on plasm.js enviroment:&nbsp&nbsp<a href="Final.html">View model</a></p>
+        
+          <h4>
+          <a name="#" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link">
+          </span><a href="../index.html">Go back Home
+        </a></a><a style="float:right" href="../python/pythonModel.html">Go to Python Model
+        </a></h4>
+
+          </section>
+
+          </div>
+        </div>
+
+
+
+        <!-- script plasm -->
+        <script src="support/jquery.js"></script>
+        <script src="support/mustache.js"></script>
+        <script src="support/numeric.js"></script>
+        <script src="support/director.js"></script>
+        <script src="support/three.js"></script>
+        <script src="support/three-detector.js"></script>
+        <script src="support/three-frame.js"></script>
+        <script src="support/three-stats.js"></script>
+        <script src="support/three-trackball.js"></script>
+        <script src="node_modules/simplexn.js/lib/simplexn.js"></script>
+        <script src="node_modules/f.js/lib/f.js"></script> 
+        <script src="lib/plasm.js"></script>
+        <script src="lib/plasm-fun.js"></script>
+
+
+          <footer>
+            <div class="inner">
+            <h2>Copyright® Barbieri Marco</h2>
+          </div>
+          </footer>
+
+
+
+
+      </body>
+      </html>
