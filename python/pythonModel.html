@@ -82,7 +82,7 @@
             <p>The python model was developed by transforming the javascript code in python code, in particular the definition of functions and variables.<br>
               The model was developed by <u>transforming the javascript code in python code, in particular the definition of functions and variables</u>. It is recalled that while in javascript coordinates of translation and rotation start at 0, in pyplasm the coordinates starting from 1, with x = 1, y = 2, z = 3; mappings with Bezier curves ranging from S1 to S3 and not more from S0 to S2.
               <br>
-              The NUBS (Non Uniform BSpline) of Javascript have been sostutite with BEZIER (S1) and the draw with view.
+              The NUBS (Non Uniform BSpline) of Javascript have been sostitute with BEZIER (S1) and the draw with view.
             </p>
 
 
@@ -92,7 +92,7 @@
               <p>To create th worksurface platform,I used some fixed paramenter, like plane's widht and heigh, and some parameter function to make support's plane and the same plane. Can see the pseudo-code below. The heigh of plane is 0.20, while its widht is 6 and its depth is 2.70; for the support the heigh is 0.05 + 2, the width is 0.15 and depth is 2.70. The support's plane and plane is create by 4 function : CREATE_PTL(...) is used to return an array of curve to map and points; MAPC(...) take an array of curve that have been mapped in S2 with BEZIER function (the curve has mapped with the next one); while CREATE_PLANE and MAKE_LEG use the other two function in order to create plane and support's plane.
               </p>
               <p><h4>PROBLEM:</h4><p>
-                The more complex the platform was center_table: the problem lies in the fact that it is not possible to rotate an array of points on an axis that would return the new array of points, in qunato is possible to perform the rotation only with objects, but it remains impossible to map in S1,objects already mapped in S0.</p>
+                The more complex the platform was center_table: the problem lies in the fact that it is not possible to rotate an array of points on an axis that would return the new array of points, in qunato is possible to perform the rotation only with objects, but it remains impossible to map in S2,objects already mapped in S1.</p>
               </p>
               <p><h4>SOLUTION:</h4><p>
                The solution comes from the idea of having an array of points and not rotated objects. My need was to rotate around the Z axis, so a rotation matrix was applied (multiplied) to my vector of points.
